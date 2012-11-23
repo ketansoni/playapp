@@ -1,0 +1,28 @@
+@(order : models.Order)
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <link rel="stylesheet" media="screen" type="text/css" href="@routes.Assets.at("stylesheets/bootstrap.css")">
+        <title></title>
+    </head>
+    <body>
+    <form id="form" method="POST" action="/update/@order.getOrder_id()">
+        <div class="well container">
+        <table class="table table-striped">
+            <tr>
+                <td>Customer Name</td>
+                <td>Item Name</td>
+                <td>Quantity</td>
+                <td>Address</td>
+            </tr>
+            <tr>
+                <td>@order.getCustomer_name()</td>
+                <td>@order.getItem_name()</td>
+                <td>@order.getQuantity()</td>
+                <td>@order.getAddress()</td>
+            </tr>
+        </table>
+            <input type=submit class="btn btn-primary" value="Change Status">
+        </div>
+    </form>
+    </body>
+    </html>
