@@ -18,9 +18,9 @@ public class Application extends Controller {
 
   public static Result getStatus(String orderId){
       String url_order = "http://" + hostname + "/order/show/" + orderId;
-      WS.Response promise = WS.url(url_order).get().get();
       Order orderObject;
       try{
+          WS.Response promise = WS.url(url_order).get().get();
           JsonNode order = promise.asJson();
           orderObject = Json.fromJson(order,Order.class);
       }catch (RuntimeException e)
