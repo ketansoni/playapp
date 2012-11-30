@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class Search {
@@ -17,21 +18,21 @@ public class Search {
         this.driver = driver;
     }
 
-    @Given("I visit Google Home Page")
-    public void visit() {
-        driver.get("http://www.google.com");
+    @Given("I view an item order \"$term\" status")
+    public void visit(String term) {
+        driver.get("http://localhost:9000/getStatus/"+term);
     }
 
-    @When("I search for \"$term\"")
-    public void searchForTerm(String term) {
-        driver.findElement(By.name("q")).sendKeys(term);
-        driver.findElement(By.name("btnG")).submit();
+    @When("I update the status")
+    public void searchForTerm() {
+        driver.findElement(By.name("ChangeStatus")).submit();
     }
 
-    @Then("I should see search results for \"$term\"")
-    public void verifyTermResults(String term) {
-//        String searchTerm = driver.findElement(By.cssSelector(".content .box h2")).getText();
-//        assertThat(searchTerm, is(equalTo("Search results for: " + term)));
+    @Then("I should see successful update message" )
+    public void verifyTermResults() {
+        String message = driver.findElement(By.tagName("h1")).getText();
+        System.out.println("******************" + message);
+        assertEquals(message,"Your order has been successfully updated.");
     }
 
 }

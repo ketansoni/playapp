@@ -1,11 +1,11 @@
 Meta:
 
 Narrative:
-As a user
-I want to search
-So that I can get the expected result
+As Fulfillment admin
+I want to update the status of an order
+So that customer is able to view it
 
 Scenario: search google
-Given I visit Google Home Page
-When I search for "JBehave"
-Then I should see search results for "JBehave"
+Given I view an item order "1" status
+When I update the status
+Then I should see successful update message
