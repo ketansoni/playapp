@@ -1,0 +1,27 @@
+GIT
+  remote: https://github.com/anandbagmar/taas.git
+  revision: ab122af862018ecfa8e83fa213288a3ccfc9f47f
+  specs:
+    taas (0.0.1)
+      rake
+      sinatra
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    rack (1.4.1)
+    rack-protection (1.2.0)
+      rack
+    rake (10.0.2)
+    sinatra (1.3.3)
+      rack (~> 1.3, >= 1.3.6)
+      rack-protection (~> 1.2)
+      tilt (~> 1.3, >= 1.3.3)
+    tilt (1.3.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  rake
+  taas!

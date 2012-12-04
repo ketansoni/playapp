@@ -4,7 +4,11 @@ import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.WebDriver;
+import play.Configuration;
+
+import java.util.Map;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -18,8 +22,9 @@ public class Search {
         this.driver = driver;
     }
 
-    @Given("I view an item order \"$term\" status")
-    public void visit(String term) {
+    @Given("I view an item status of requested order")
+    public void visit() {
+        String term = System.getProperty("taas_order_id");
         driver.get("http://localhost:9000/getStatus/"+term);
     }
 
@@ -31,7 +36,6 @@ public class Search {
     @Then("I should see successful update message" )
     public void verifyTermResults() {
         String message = driver.findElement(By.tagName("h1")).getText();
-        System.out.println("******************" + message);
         assertEquals(message,"Your order has been successfully updated.");
     }
 

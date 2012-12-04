@@ -1,0 +1,8 @@
+contracts:
+  deliver_order:
+    dir: "/Users/ketans/code/fulfillment_merchant/fullfilment-app"
+    command: "play <taas_params> test"
+    input_param_format: "-Dkey=value"
+    input_params:
+      order_id:
+

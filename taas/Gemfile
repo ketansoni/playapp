@@ -1,0 +1,4 @@
+source :rubygems
+
+gem "taas", :git => 'https://github.com/anandbagmar/taas.git'
+gem "rake"
