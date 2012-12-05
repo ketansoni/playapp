@@ -24,7 +24,7 @@ public class Search {
 
     @Given("I view an item status of requested order")
     public void visit() {
-        String term = System.getProperty("taas_order_id");
+        String term = System.getProperty("order_id");
         driver.get("http://localhost:9000/getStatus/"+term);
     }
 
